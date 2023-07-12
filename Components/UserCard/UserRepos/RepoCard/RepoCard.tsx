@@ -4,17 +4,21 @@ import styles from "./RepoCard.module.scss";
 
 const RepoCard = (props: { Repo: IrepoDetail }) => {
   const { Repo } = props;
+  const lastupdate = Repo.updated_at.split("T");
   return (
     <div className={`${styles.Container}`}>
-      <div>
-        <Link href={Repo.url}>{Repo.name}</Link>
-        <span>{Repo.visibility}</span>
+      <div className={`${styles.name}`}>
+        <Link href={Repo.html_url} target="_blank">
+          {Repo.name}
+        </Link>
+        <span className={`${styles.visibility}`}>{Repo.visibility}</span>
       </div>
-      <div>
-        <span>{Repo.language}</span>
-        <span>{Repo.updated_at}</span>
-        <span>{Repo.stargazers_count}</span>
-        <span>{Repo.forks_count}</span>
+      <p>{Repo.description}</p>
+      <div className={`${styles.subinfo}`}>
+        {Repo.language && <span>{Repo.language}</span>}
+        <span>updated at: {lastupdate[0]}</span>
+        <span> satrs: {Repo.stargazers_count}</span>
+        <span>forks: {Repo.forks_count}</span>
       </div>
     </div>
   );

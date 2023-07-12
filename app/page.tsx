@@ -8,8 +8,7 @@ const Home = () => {
   const [UserInfo, setUserInfo] = useState({});
   const router = useRouter();
   const clickHandler = () => {
-    const searchoption = Username.trim();
-    router.push(`/${searchoption}`);
+    router.push(`/${Username}`);
   };
   return (
     <div>

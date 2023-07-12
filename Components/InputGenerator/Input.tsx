@@ -3,7 +3,7 @@ import styles from "./Input.module.scss";
 import { log } from "console";
 
 interface Iinput {
-  label: string;
+  label?: string;
   width?: string;
   height?: string;
   name: string;
@@ -13,7 +13,7 @@ interface Iinput {
 }
 const Input: React.FC<Iinput> = ({
   label,
-  width = "6",
+  width,
   height,
   name,
   value,
@@ -25,7 +25,7 @@ const Input: React.FC<Iinput> = ({
     onChange(value);
   };
   return (
-    <div className={`${styles.inputwrapper} col-12 xl:col-${width}`}>
+    <div className={`${styles.inputwrapper}`}>
       <label>{label}</label>
       <input
         style={{ height: `${height}` }}

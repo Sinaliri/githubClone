@@ -1,9 +1,11 @@
 @import "../../../src/CustomScss/mixins";
 .Container {
   display: flex;
+  //   width: 100%;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin: 100px 30px;
   .imgWrapper {
     width: 296px;
     height: 296px;

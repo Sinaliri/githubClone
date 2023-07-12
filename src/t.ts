@@ -6,6 +6,8 @@ interface Idetail {
   url: string;
   public_repos: number;
   repos_url: string;
+  name: string;
+  html_url: string;
 }
 interface IrepoDetail {
   name: string;
@@ -17,5 +19,6 @@ interface IrepoDetail {
   html_url: string;
   visibility: string;
   language: string;
+  description: string;
 }
 export type { Idetail, IrepoDetail };

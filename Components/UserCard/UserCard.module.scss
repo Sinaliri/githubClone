@@ -1,4 +1,9 @@
 @import "../../src/CustomScss/mixins";
 .Container {
-  @include Center;
+  @include Center(flex-start, flex-start);
+  background-color: #0d1117;
+  color: #fff;
+  width: 80%;
+  margin: 0 auto;
+  flex-wrap: wrap;
 }
