@@ -1,0 +1,34 @@
+.inputwrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  label {
+    margin: 11px 0;
+    @media screen and (max-width: 1199px) {
+    }
+  }
+  .checkboxlabel {
+    @media screen and (max-width: 1199px) {
+    }
+  }
+  input {
+    border-radius: 10px;
+    background-color: #fff;
+    height: 49px;
+    padding: 10px;
+    outline: none;
+    border: 1px solid black;
+    @media screen and (max-width: 600px) {
+      height: 45px;
+    }
+  }
+  input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    @media screen and (max-width: 991px) {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
