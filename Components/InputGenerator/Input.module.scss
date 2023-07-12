@@ -1,9 +1,11 @@
+@import "../../src/CustomScss/mixins";
 .inputwrapper {
-  position: relative;
-  display: flex;
+  @include Center(center, center);
+  width: 60%;
   flex-direction: column;
+  height: 30px;
+
   label {
-    margin: 11px 0;
     @media screen and (max-width: 1199px) {
     }
   }
@@ -12,13 +14,15 @@
     }
   }
   input {
-    // width: 60%;
+    width: 100%;
     border-radius: 10px;
-    background-color: #fff;
-    height: 49px;
+    background-color: inherit;
+    height: 30px;
     padding: 10px;
     outline: none;
-    border: 1px solid black;
+    border: 1px solid #30363d;
+    color: #c3c3c3;
+    font-size: 16px;
     @media screen and (max-width: 600px) {
       height: 45px;
     }

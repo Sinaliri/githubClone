@@ -18,6 +18,7 @@ const Home = () => {
         name="Username"
         value={Username}
         onChange={setUsername}
+        placeholder="Enter Correct UserName"
       />
       <button onClick={clickHandler}>Search</button>
       {/* href={`/${Username}`} */}

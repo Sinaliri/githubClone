@@ -9,6 +9,7 @@ interface Iinput {
   name: string;
   value: string;
   type: string;
+  placeholder: string;
   onChange: (value: string) => void;
 }
 const Input: React.FC<Iinput> = ({
@@ -18,6 +19,7 @@ const Input: React.FC<Iinput> = ({
   name,
   value,
   type,
+  placeholder,
   onChange,
 }) => {
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -34,6 +36,7 @@ const Input: React.FC<Iinput> = ({
         name={name}
         value={value}
         onChange={handleInputChange}
+        placeholder={placeholder}
         //   value={UserData.FName}
       />
     </div>
