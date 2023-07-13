@@ -54,13 +54,4 @@ To use the GitHub Clone application, follow the steps below:
 
 7. Enjoy exploring the repositories and user information on GitHub!
 
-## Contributing
 
-Contributions are welcome! If you would like to contribute to this project, please follow the guidelines outlined in the [CONTRIBUTING.md](CONTRIBUTING.md) file.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE). Feel free to use and modify this project for personal or commercial purposes.
-## Contributing
-
-Contributions are welcome! If you would like to contribute to this project, please follow the guidelines outlined in the [CONTRIBUTING.md](CONTRIBUTING.md) file.
