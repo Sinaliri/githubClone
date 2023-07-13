@@ -2,7 +2,7 @@
 import DetailSection from "./DetailSection/DetailSection";
 import styles from "./UserCard.module.scss";
 import UserRepos from "./UserRepos/UserRepos";
-import { Idetail, IrepoDetail } from "../../src/t";
+import { Idetail, IrepoDetail } from "../../assets/t";
 import { useContext, useEffect, useState } from "react";
 import Menubar from "../Menubar/Menubar";
 import { MainContext, mainContextType } from "@/Context/Procider/Provider";

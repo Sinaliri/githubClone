@@ -1,6 +1,6 @@
 "use client";
 
-import { IrepoDetail } from "@/src/t";
+import { IrepoDetail } from "../../../assets/t";
 import styles from "./UserRepos.module.scss";
 import { useContext, useEffect } from "react";
 import RepoCard from "../RepoCard/RepoCard";

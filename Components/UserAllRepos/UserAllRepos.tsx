@@ -1,5 +1,5 @@
 "use client";
-import { IrepoDetail } from "@/src/t";
+import { IrepoDetail } from "../../assets/t";
 import React, { useEffect, useState } from "react";
 import RepoCard from "../UserCard/RepoCard/RepoCard";
 import Input from "../InputGenerator/Input";

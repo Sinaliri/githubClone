@@ -1,7 +1,7 @@
 "use client";
 import Input from "@/Components/InputGenerator/Input";
 import { useRouter } from "next/navigation";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import styles from "./Mainpage.module.scss";
 import { MainContext, mainContextType } from "@/Context/Procider/Provider";
 const Home = () => {

@@ -8,7 +8,7 @@ import React, {
 } from "react";
 import styles from "./Menubar.module.scss";
 import Input from "../InputGenerator/Input";
-import { IrepoDetail } from "@/src/t";
+import { IrepoDetail } from "../../assets/t";
 import { MainContext, mainContextType } from "@/Context/Procider/Provider";
 import { useRouter } from "next/navigation";
 

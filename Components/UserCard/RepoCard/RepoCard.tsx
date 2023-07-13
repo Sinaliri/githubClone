@@ -1,4 +1,4 @@
-import { IrepoDetail } from "@/src/t";
+import { IrepoDetail } from "../../../assets/t";
 import Link from "next/link";
 import styles from "./RepoCard.module.scss";
 

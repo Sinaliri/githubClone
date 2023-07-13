@@ -1,4 +1,4 @@
-@import "../../../src/CustomScss/mixins";
+@import "../../../assets/CustomScss/mixins";
 .Container {
   display: flex;
   //   width: 100%;
@@ -19,8 +19,27 @@
   .profileDetail {
     @include Center(center, flex-start);
     flex-direction: column;
+
     span {
-      margin: 5px 0;
+      margin: 3px 0;
+      &:nth-child(1) {
+        color: #e6edf3;
+        font: {
+          size: 24px;
+        }
+      }
+      &:nth-child(2) {
+        color: #646b75;
+        font: {
+          size: 20px;
+        }
+      }
+      &:nth-child(3) {
+        color: #3c6399;
+        font: {
+          size: 20px;
+        }
+      }
     }
   }
 }

@@ -1,5 +1,5 @@
 "use client";
-import { Idetail, IrepoDetail } from "@/src/t";
+import { Idetail, IrepoDetail } from "../../assets/t";
 import React, { Dispatch, createContext, useState } from "react";
 
 export type mainContextType = {
