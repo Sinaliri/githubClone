@@ -8,7 +8,9 @@ import Menubar from "../Menubar/Menubar";
 import { MainContext, mainContextType } from "@/Context/Procider/Provider";
 const UserCard = (props: { detail: Idetail; repo: IrepoDetail[] }) => {
   const { repos, setRepo } = useContext<mainContextType>(MainContext);
-  useEffect(() => {}, [repos]);
+  useEffect(() => {
+    setRepo(props.repo);
+  }, []);
 
   //   const [Repositories, setRepositories] = useState(props.repo);
   const [sortedoption, setSortedOption] = useState("");
@@ -24,7 +26,7 @@ const UserCard = (props: { detail: Idetail; repo: IrepoDetail[] }) => {
       <DetailSection detail={props.detail} />
       <div className={`${styles.side}`}>
         <Menubar sortedoption={sortedoption} handler={handler} />
-        <UserRepos />
+        <UserRepos repo={props.repo} />
       </div>
     </div>
   );

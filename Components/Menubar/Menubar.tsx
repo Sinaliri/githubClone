@@ -19,38 +19,43 @@ type Props = {
 const Menubar = (props: { sortedoption: string; handler: any }) => {
   const router = useRouter();
   const { sortedoption, handler } = props;
-  const { sortedBy, setSortedBy, repos, setRepo } =
-    useContext<mainContextType>(MainContext);
-
-  const [search, setSearch] = useState("");
-
+  const {
+    sortedBy,
+    setSortedBy,
+    repos,
+    setRepo,
+    search,
+    setSearch,
+    setFilteredObjects,
+    filteredObjects,
+  } = useContext<mainContextType>(MainContext);
   const handleForkClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    const fork = [...repos]?.sort((a, b) => b.forks_count - a.forks_count);
     setSortedBy(event?.currentTarget.innerText);
-    setRepo(fork);
   };
   const handleStarClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    // Sort by stargazers count
-    console.log(repos);
-    const filteredByStars = [...repos]?.sort(
-      (a, b) => b.stargazers_count - a.stargazers_count
-    );
-    setRepo(filteredByStars);
     setSortedBy(event?.currentTarget.innerText);
-    console.log("clicked");
-    console.log("star", filteredByStars);
   };
   const handleTime = (event: React.MouseEvent<HTMLButtonElement>) => {
     // Sort by stargazers count
-    console.log(repos);
-    const sortedArray = repos?.sort(
-      (a, b) =>
-        new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()
-    );
-    setRepo(sortedArray);
     setSortedBy(event?.currentTarget.innerText);
-    console.log("clicked");
-    console.log("updated by time", sortedArray);
+  };
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log();
+    const input: any = event.target.value;
+    setSearch(input);
+    console.log(search);
+    if (search.length >= 2) {
+      setSortedBy("");
+      const filteredArray = repos.filter((obj) =>
+        obj.name.toLowerCase().includes(search.toLowerCase())
+      );
+      // console.log(search);
+      setFilteredObjects(filteredArray);
+    } else {
+      setSortedBy("Forks");
+      setFilteredObjects(repos);
+    }
+    console.log("FilteredObjects", filteredObjects);
   };
 
   return (
@@ -58,9 +63,9 @@ const Menubar = (props: { sortedoption: string; handler: any }) => {
       <div className={styles.searchbar}>
         <Input
           type="text"
-          name="Username"
+          name="Search"
           value={search}
-          onChange={setSearch}
+          onChange={handleInputChange}
           placeholder="Filter by Name"
         />
         <div className={styles.filtered}>

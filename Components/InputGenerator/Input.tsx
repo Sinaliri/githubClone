@@ -10,7 +10,7 @@ interface Iinput {
   value: string;
   type: string;
   placeholder: string;
-  onChange: (value: string) => void;
+  onChange: (value: any) => void;
 }
 const Input: React.FC<Iinput> = ({
   label,
