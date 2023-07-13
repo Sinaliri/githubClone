@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Idetail } from "../../../assets/t";
 import styles from "./DetailSection.module.scss";
 import Link from "next/link";
@@ -7,7 +8,7 @@ const DetailSection = (props: { detail: Idetail }) => {
   return (
     <div className={`${styles.Container}`}>
       <div className={`${styles.imgWrapper}`}>
-        <img src={detail?.avatar_url} alt="image" />
+        <Image src={detail?.avatar_url} alt="image" width={296} height={296} />
       </div>
       <div className={`${styles.profileDetail}`}>
         <span>{detail?.name}</span>
