@@ -20,5 +20,6 @@ interface IrepoDetail {
   visibility: string;
   language: string;
   description: string;
+  owner: any[];
 }
 export type { Idetail, IrepoDetail };

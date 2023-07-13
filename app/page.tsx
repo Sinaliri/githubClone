@@ -1,8 +1,8 @@
 "use client";
 import Input from "@/Components/InputGenerator/Input";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import styles from "./Mainpage.module.scss";
 const Home = () => {
   const [Username, setUsername] = useState<string>("");
   const [UserInfo, setUserInfo] = useState({});
@@ -11,14 +11,14 @@ const Home = () => {
     router.push(`/${Username}`);
   };
   return (
-    <div>
+    <div className={`${styles.Container}`}>
       <Input
-        label="UserName"
         type="text"
         name="Username"
         value={Username}
         onChange={setUsername}
         placeholder="Enter Correct UserName"
+        height="100px"
       />
       <button onClick={clickHandler}>Search</button>
       {/* href={`/${Username}`} */}

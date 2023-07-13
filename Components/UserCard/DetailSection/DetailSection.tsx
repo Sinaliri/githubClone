@@ -7,15 +7,15 @@ const DetailSection = (props: { detail: Idetail }) => {
   return (
     <div className={`${styles.Container}`}>
       <div className={`${styles.imgWrapper}`}>
-        <img src={detail.avatar_url} alt="image" />
+        <img src={detail?.avatar_url} alt="image" />
       </div>
       <div className={`${styles.profileDetail}`}>
-        <span>Name: {detail.name}</span>
-        <span>ID: {detail.login}</span>
-        <Link href={detail.html_url} target="_blank">
-          Profile: {detail.html_url}
+        <span>Name: {detail?.name}</span>
+        <span>ID: {detail?.login}</span>
+        <Link href={"#"} target="_blank">
+          Profile: {detail?.html_url}
         </Link>
-        <span>public Repositry: {detail.public_repos}</span>
+        <span>public Repositry: {detail?.public_repos}</span>
       </div>
     </div>
   );

@@ -1,47 +1,49 @@
+"use client";
 import UserCard from "@/Components/UserCard/UserCard";
-import { mainContextType } from "@/Context/Procider/Provider";
-import { Userprofile_get } from "@/Services/Api";
-import { useContext } from "react";
-const UserInfo = async ({ params }: any) => {
-  console.log("ss", params);
-  const data = await fetch(`https://api.github.com/users/${params.username}`, {
-    next: { revalidate: 5 },
-  });
-  const detail = (await data.json()) as {
-    login: string;
-    avatar_url: string;
-    url: string;
-    public_repos: number;
-    repos_url: string;
-    name: string;
-    html_url: string;
-  };
-  console.log(detail.public_repos);
-  const repositories = await fetch(detail.repos_url);
-  const Repository = await repositories.json();
-  console.log(Repository);
+import { MainContext, mainContextType } from "@/Context/Procider/Provider";
+import axios from "axios";
+import { useContext, useEffect } from "react";
+const UserInfo = ({ params }: any) => {
+  const { repos, setRepo, detail, setDetail } =
+    useContext<mainContextType>(MainContext);
+  console.log("username", params);
+  
+  useEffect(() => {
+      if(!repos){
+      const fetchdata = async () => {
+        await axios
+        .get(`https://api.github.com/users/${params.username}`)
+        .then((res) => {
+          console.log("axios", res.data);
+          setDetail(res.data);
+          axios.get(res.data.repos_url).then((detailres) => {
+            console.log("detail", detailres);
+            setRepo(detailres.data);
+          });
+        })
+        .catch((err) => {
+          console.log("err", err);
+        });
+    };
+
+    fetchdata();
+  }
+  }, []);
+  // console.log(detail.public_repos);
+  // const repositories = await fetch(detail.repos_url);
+  // const Repository = await repositories.json();
+  // localStorage.setItem("repos", JSON.stringify(Repository));
+  // localStorage.setItem("userinfo", JSON.stringify(detail));
+  // console.log(Repository);
   return (
     <div>
-      <UserCard detail={detail} repo={Repository} />
+      {detail && repos ? (
+        <UserCard detail={detail} repo={repos} />
+      ) : (
+        <div>Loading...</div>
+      )}
     </div>
   );
 };
-// export async function getServerSideProps(context) {
-//   console.log("context", context);
-//   // Get user id
-//   const User = await fetch(
-//     `https://api.github.com/users/${context.query.username}`
-//   );
 
-//   return {
-//     props: { User }, // will be passed to the page component as props
-//   };
-// }
-// UserInfo.getInitialProps = async (ctx) => {
-//   console.log("ctx", ctx);
-//   const data = await fetch(
-//     `https://api.github.com/users/${ctx.query.username}`
-//   );
-//   return data;
-// };
 export default UserInfo;
