@@ -22,9 +22,12 @@
         width: fit-content;
         background-color: #30363d;
         padding: 5px 10px;
+        height: 25px;
         border-radius: 8px;
-        margin-right: 20px;
+        margin-right: 10px;
         font-size: 12px;
+        display: flex;
+        flex-wrap: nowrap;
         cursor: pointer;
       }
     }

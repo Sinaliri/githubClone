@@ -7,27 +7,28 @@ const UserInfo = ({ params }: any) => {
   const { repos, setRepo, detail, setDetail } =
     useContext<mainContextType>(MainContext);
   console.log("username", params);
-  
+
   useEffect(() => {
-      if(!repos){
+    if (!repos) {
       const fetchdata = async () => {
         await axios
-        .get(`https://api.github.com/users/${params.username}`)
-        .then((res) => {
-          console.log("axios", res.data);
-          setDetail(res.data);
-          axios.get(res.data.repos_url).then((detailres) => {
-            console.log("detail", detailres);
-            setRepo(detailres.data);
+          .get(`https://api.github.com/users/${params.username}`)
+          .then((res) => {
+            console.log("axios", res.data);
+            setDetail(res.data);
+            console.log(res.data.repos_url);
+            axios.get(res.data.repos_url).then((detailres) => {
+              console.log("detail", detailres);
+              setRepo(detailres.data);
+            });
+          })
+          .catch((err) => {
+            console.log("err", err);
           });
-        })
-        .catch((err) => {
-          console.log("err", err);
-        });
-    };
+      };
 
-    fetchdata();
-  }
+      fetchdata();
+    }
   }, []);
   // console.log(detail.public_repos);
   // const repositories = await fetch(detail.repos_url);

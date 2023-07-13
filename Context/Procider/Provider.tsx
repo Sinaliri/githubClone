@@ -13,13 +13,17 @@ export type mainContextType = {
   setSortedBy: React.Dispatch<React.SetStateAction<string>>;
   search: string;
   setSearch: React.Dispatch<React.SetStateAction<string>>;
+  Username: string;
+  setUsername: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export const MainContext = createContext({} as mainContextType);
 
 const MainProvider = (props: any) => {
   const [sortedBy, setSortedBy] = useState("Forks");
-  const [search, setSearch] = useState<string>("Forks");
+  const [search, setSearch] = useState<string>("");
+  const [Username, setUsername] = useState<string>("");
+
   const [repos, setRepo] = useState<IrepoDetail[]>(props.repo || null);
   const [filteredObjects, setFilteredObjects] = useState<IrepoDetail[]>(
     props.repo || null
@@ -33,6 +37,8 @@ const MainProvider = (props: any) => {
         setRepo,
         filteredObjects,
         setFilteredObjects,
+        Username,
+        setUsername,
         search,
         setSearch,
         detail,

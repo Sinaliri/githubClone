@@ -27,6 +27,7 @@ const Menubar = (props: { sortedoption: string; handler: any }) => {
     search,
     setSearch,
     setFilteredObjects,
+    Username,
     filteredObjects,
   } = useContext<mainContextType>(MainContext);
   const handleForkClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -41,7 +42,7 @@ const Menubar = (props: { sortedoption: string; handler: any }) => {
   };
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     console.log();
-    const input: any = event.target.value;
+    const input: any = event;
     setSearch(input);
     console.log(search);
     if (search.length >= 2) {
@@ -57,7 +58,10 @@ const Menubar = (props: { sortedoption: string; handler: any }) => {
     }
     console.log("FilteredObjects", filteredObjects);
   };
-
+  const handle = () => {
+    console.log(Username);
+    router.push(`/${Username}/most-popular`);
+  };
   return (
     <div className={styles.container}>
       <div className={styles.searchbar}>
@@ -78,6 +82,9 @@ const Menubar = (props: { sortedoption: string; handler: any }) => {
           </button>
           <button onClick={handleTime} data-sort="Last Updated">
             Last Updated
+          </button>
+          <button onClick={handle} data-sort="Most Popular">
+            Most Popular
           </button>
         </div>
       </div>

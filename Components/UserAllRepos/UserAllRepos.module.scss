@@ -1,0 +1,9 @@
+@import "../../src/CustomScss/mixins";
+.wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  .search {
+    @include Center;
+    margin: 10px;
+  }
+}

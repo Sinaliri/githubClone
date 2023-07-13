@@ -14,7 +14,7 @@ interface Iinput {
 }
 const Input: React.FC<Iinput> = ({
   label,
-  width,
+  width = "50%",
   height,
   name,
   value,
@@ -27,7 +27,7 @@ const Input: React.FC<Iinput> = ({
     onChange(value);
   };
   return (
-    <div className={`${styles.inputwrapper}`}>
+    <div className={`${styles.inputwrapper}`} style={{ width: `${width}` }}>
       <label>{label}</label>
       <input
         style={{ height: `${height}` }}

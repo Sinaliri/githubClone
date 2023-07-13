@@ -1,10 +1,11 @@
 "use client";
 import Input from "@/Components/InputGenerator/Input";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import styles from "./Mainpage.module.scss";
+import { MainContext, mainContextType } from "@/Context/Procider/Provider";
 const Home = () => {
-  const [Username, setUsername] = useState<string>("");
+  const { Username, setUsername } = useContext<mainContextType>(MainContext);
   const [UserInfo, setUserInfo] = useState({});
   const router = useRouter();
   const clickHandler = () => {

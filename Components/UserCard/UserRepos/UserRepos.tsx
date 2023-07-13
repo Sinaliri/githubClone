@@ -7,9 +7,10 @@ import RepoCard from "./RepoCard/RepoCard";
 import { MainContext, mainContextType } from "@/Context/Procider/Provider";
 import { DataContext, IDataContext } from "@/Context/ContextProvier";
 
-const UserRepos = (props: { repo: IrepoDetail[] }) => {
+const UserRepos = (props: { repos: IrepoDetail[] }) => {
   // const { repo } = props;
   // console.log(repo);
+
   const { repos, setRepo, sortedBy, search, filteredObjects } =
     useContext<mainContextType>(MainContext);
   useEffect(() => {

@@ -26,7 +26,7 @@ const UserCard = (props: { detail: Idetail; repo: IrepoDetail[] }) => {
       <DetailSection detail={props.detail} />
       <div className={`${styles.side}`}>
         <Menubar sortedoption={sortedoption} handler={handler} />
-        <UserRepos repo={props.repo} />
+        <UserRepos repos={props.repo} />
       </div>
     </div>
   );
