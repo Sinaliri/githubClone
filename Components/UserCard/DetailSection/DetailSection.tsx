@@ -8,7 +8,8 @@ const DetailSection = (props: { detail: Idetail }) => {
   return (
     <div className={`${styles.Container}`}>
       <div className={`${styles.imgWrapper}`}>
-        <Image src={detail?.avatar_url} alt="image" width={296} height={296} />
+        {/* <Image src={detail?.avatar_url} alt="image" width={296} height={296} /> */}
+        <img src={detail?.avatar_url} alt="image" />
       </div>
       <div className={`${styles.profileDetail}`}>
         <span>{detail?.name}</span>
