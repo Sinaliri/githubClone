@@ -1,35 +1,57 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# GitHub Clone
+
+Welcome to the GitHub Clone project! This is a simple application built with Next.js, which allows you to retrieve repositories and user information based on a user ID. The application uses the GitHub REST API to fetch data from GitHub.
 
 ## Getting Started
 
-First, run the development server:
+To use this application, follow the instructions below to set it up on your local machine.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+### Prerequisites
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Node.js (v14 or higher)
+- npm (Node Package Manager)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Clone the repository to your local machine:
 
-## Learn More
+   ```shell
+   git clone https://github.com/Sinaliri/githubClone.git
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. Navigate to the project directory:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```shell
+   cd github-clone
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+3. Install the required dependencies:
 
-## Deploy on Vercel
+   ```shell
+   npm install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# githubClone
+## Usage
+
+To use the GitHub Clone application, follow the steps below:
+
+1. Run the following command to start the application:
+
+   ```shell
+   npm run dev
+   ```
+
+2. Open your web browser and navigate to `http://localhost:3000`.
+
+3. The application will prompt you to enter a user ID. Provide the GitHub user ID of the user whose repositories you want to retrieve.
+
+4. Once you submit the user ID, the application will display the repositories of the user, sorted by Forks number and you can sort by Stars number or Last Update.
+
+5. To filter the repositories by name, enter at least three letters in the input field. The application will dynamically filter the repositories based on the entered text.
+
+6. Click on a repository to view more details about it, such as the number of stars, forks, and the last update time.
+
+7. Enjoy exploring the repositories and user information on GitHub!
+
+
