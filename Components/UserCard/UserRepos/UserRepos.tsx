@@ -3,22 +3,19 @@
 import { IrepoDetail } from "@/src/t";
 import styles from "./UserRepos.module.scss";
 import { useContext, useEffect } from "react";
-import RepoCard from "./RepoCard/RepoCard";
+import RepoCard from "../RepoCard/RepoCard";
 import { MainContext, mainContextType } from "@/Context/Procider/Provider";
-import { DataContext, IDataContext } from "@/Context/ContextProvier";
-
 const UserRepos = (props: { repos: IrepoDetail[] }) => {
-  // const { repo } = props;
+  const { repos } = props;
   // console.log(repo);
 
-  const { repos, setRepo, sortedBy, search, filteredObjects } =
+  const { setRepo, sortedBy, search, filteredObjects } =
     useContext<mainContextType>(MainContext);
   useEffect(() => {
-    // console.log("new", repos);
+    setRepo(props.repos);
     console.log("sortedBy", sortedBy);
   }, [sortedBy, search]);
   console.log(repos);
-  //   Sort by created_at date
   const filteredByForks = [...repos]?.sort(
     (a, b) => b.forks_count - a.forks_count
   );

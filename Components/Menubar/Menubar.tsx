@@ -10,15 +10,14 @@ import styles from "./Menubar.module.scss";
 import Input from "../InputGenerator/Input";
 import { IrepoDetail } from "@/src/t";
 import { MainContext, mainContextType } from "@/Context/Procider/Provider";
-import { DataContext, IDataContext } from "@/Context/ContextProvier";
 import { useRouter } from "next/navigation";
 
 type Props = {
   updateState: (newState: string) => void;
 };
-const Menubar = (props: { sortedoption: string; handler: any }) => {
+const Menubar = (props: { sortedoption: string }) => {
   const router = useRouter();
-  const { sortedoption, handler } = props;
+  const { sortedoption } = props;
   const {
     sortedBy,
     setSortedBy,
@@ -28,6 +27,7 @@ const Menubar = (props: { sortedoption: string; handler: any }) => {
     setSearch,
     setFilteredObjects,
     Username,
+
     filteredObjects,
   } = useContext<mainContextType>(MainContext);
   const handleForkClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -45,9 +45,9 @@ const Menubar = (props: { sortedoption: string; handler: any }) => {
     const input: any = event;
     setSearch(input);
     console.log(search);
-    if (search.length >= 2) {
+    if (input.length >= 3) {
       setSortedBy("");
-      const filteredArray = repos.filter((obj) =>
+      const filteredArray = [...repos].filter((obj) =>
         obj.name.toLowerCase().includes(search.toLowerCase())
       );
       // console.log(search);
@@ -93,23 +93,3 @@ const Menubar = (props: { sortedoption: string; handler: any }) => {
 };
 
 export default Menubar;
-
-// const forkFilter = [...repos].sort((a, b) => b.forks_count - a.forks_count);
-// setRepo(forkFilter);
-// console.log("clicked");
-// console.log(forkFilter);
-// const handleForkClick = (event: React.ChangeEvent<HTMLInputElement>) => {
-//   setSortedBy(event.target.value);
-//   console.log(event.target.innerText);
-//   console.log(sortedBy);
-// };
-// const handleStarClick = () => {
-//   // Sort by stargazers count
-//   console.log(repos);
-//   const starFilter = [...repos]?.sort(
-//     (a, b) => b.stargazers_count - a.stargazers_count
-//   );
-//   setRepo(starFilter);
-//   console.log("clicked");
-//   console.log(starFilter);
-// };

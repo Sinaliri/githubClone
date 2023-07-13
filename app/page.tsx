@@ -5,10 +5,12 @@ import { useContext, useState } from "react";
 import styles from "./Mainpage.module.scss";
 import { MainContext, mainContextType } from "@/Context/Procider/Provider";
 const Home = () => {
-  const { Username, setUsername } = useContext<mainContextType>(MainContext);
-  const [UserInfo, setUserInfo] = useState({});
+  const { Username, setUsername, setRepo } =
+    useContext<mainContextType>(MainContext);
   const router = useRouter();
+
   const clickHandler = () => {
+    setRepo([]);
     router.push(`/${Username}`);
   };
   return (
@@ -22,7 +24,6 @@ const Home = () => {
         height="100px"
       />
       <button onClick={clickHandler}>Search</button>
-      {/* href={`/${Username}`} */}
     </div>
   );
 };

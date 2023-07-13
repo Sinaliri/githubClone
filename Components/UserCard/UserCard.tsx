@@ -7,25 +7,18 @@ import { useContext, useEffect, useState } from "react";
 import Menubar from "../Menubar/Menubar";
 import { MainContext, mainContextType } from "@/Context/Procider/Provider";
 const UserCard = (props: { detail: Idetail; repo: IrepoDetail[] }) => {
-  const { repos, setRepo } = useContext<mainContextType>(MainContext);
+  const { setUsername } = useContext<mainContextType>(MainContext);
   useEffect(() => {
-    setRepo(props.repo);
+    setUsername(props.detail.login);
   }, []);
 
-  //   const [Repositories, setRepositories] = useState(props.repo);
   const [sortedoption, setSortedOption] = useState("");
-  //   const handleUpdateState = (newState: IrepoDetail[]) => {
-  //     setRepositories(newState);
-  //   };
-  console.log("usercard", repos);
-  const handler = (newstr: string) => {
-    setSortedOption(newstr);
-  };
+
   return (
     <div className={`${styles.Container}`}>
       <DetailSection detail={props.detail} />
       <div className={`${styles.side}`}>
-        <Menubar sortedoption={sortedoption} handler={handler} />
+        <Menubar sortedoption={sortedoption} />
         <UserRepos repos={props.repo} />
       </div>
     </div>
