@@ -18,7 +18,7 @@ const Home = () => {
         name="Username"
         value={Username}
         onChange={setUsername}
-        placeholder="Enter Correct UserName"
+        placeholder="Enter Correct Github ID"
         height="100px"
       />
       <button onClick={clickHandler}>Search</button>
