@@ -22,7 +22,7 @@ export const MainContext = createContext({} as mainContextType);
 const MainProvider = (props: any) => {
   const [sortedBy, setSortedBy] = useState("Forks");
   const [search, setSearch] = useState<string>("");
-  const [Username, setUsername] = useState<string>("Sinaliri");
+  const [Username, setUsername] = useState<string>("");
 
   const [repos, setRepo] = useState<IrepoDetail[]>(props.repo || null);
   const [filteredObjects, setFilteredObjects] = useState<IrepoDetail[]>(
