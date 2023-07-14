@@ -57,7 +57,7 @@ const Menubar = (props: { sortedoption: string }) => {
     }
   };
   const handle = () => {
-    console.log(Username);
+    router.push(`./${Username}/most-popular`);
   };
   return (
     <div className={styles.container}>
@@ -81,7 +81,7 @@ const Menubar = (props: { sortedoption: string }) => {
             Last Updated
           </button>
           <button onClick={handle} data-sort="Most Popular">
-            <Link href={`./${Username}/most-popular`}>Most Popular</Link>
+            Most Popular
           </button>
         </div>
       </div>
