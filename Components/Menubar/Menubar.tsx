@@ -11,6 +11,7 @@ import Input from "../InputGenerator/Input";
 import { IrepoDetail } from "../../assets/t";
 import { MainContext, mainContextType } from "@/Context/Procider/Provider";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 type Props = {
   updateState: (newState: string) => void;
@@ -57,7 +58,6 @@ const Menubar = (props: { sortedoption: string }) => {
   };
   const handle = () => {
     console.log(Username);
-    router.push(`/${Username}/most-popular`);
   };
   return (
     <div className={styles.container}>
@@ -81,7 +81,7 @@ const Menubar = (props: { sortedoption: string }) => {
             Last Updated
           </button>
           <button onClick={handle} data-sort="Most Popular">
-            Most Popular
+            <Link href={`./${Username}/most-popular`}>Most Popular</Link>
           </button>
         </div>
       </div>

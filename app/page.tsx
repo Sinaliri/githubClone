@@ -4,13 +4,13 @@ import { useRouter } from "next/navigation";
 import { useContext } from "react";
 import styles from "./Mainpage.module.scss";
 import { MainContext, mainContextType } from "@/Context/Procider/Provider";
+import Link from "next/link";
 const Home = () => {
   const { Username, setUsername, setRepo } =
     useContext<mainContextType>(MainContext);
   const router = useRouter();
   const clickHandler = () => {
     setRepo([]);
-    router.push(`./${Username}`);
   };
   return (
     <div className={`${styles.Container}`}>
@@ -22,7 +22,13 @@ const Home = () => {
         placeholder="Enter Correct Github ID"
         height="100px"
       />
-      <button onClick={clickHandler}>Search</button>
+      <Link
+        className={`${styles.link}`}
+        href={`./${Username}`}
+        onClick={clickHandler}
+      >
+        Search
+      </Link>
     </div>
   );
 };
