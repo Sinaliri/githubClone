@@ -47,7 +47,7 @@ const Menubar = (props: { sortedoption: string }) => {
     if (input.length >= 3) {
       setSortedBy("");
       const filteredArray = [...repos].filter((obj) =>
-        obj.name.toLowerCase().includes(search.toLowerCase())
+        obj.name.toLowerCase().includes(input.toLowerCase())
       );
       // console.log(search);
       setFilteredObjects(filteredArray);
