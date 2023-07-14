@@ -8,10 +8,9 @@ const Home = () => {
   const { Username, setUsername, setRepo } =
     useContext<mainContextType>(MainContext);
   const router = useRouter();
-
   const clickHandler = () => {
     setRepo([]);
-    router.push(`/${Username}`);
+    router.push(`./${Username}`);
   };
   return (
     <div className={`${styles.Container}`}>
