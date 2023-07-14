@@ -11,32 +11,26 @@ const UserAllRepos = (props: { repo: IrepoDetail[] }) => {
   const [filteredObjects, setFilteredObjects] = useState<IrepoDetail[]>([]);
   let sorteddata: IrepoDetail[];
   useEffect(() => {
-    if (repo) {
-      const filteredByStars = repo
-        .slice()
-        .sort((a, b) => b.stargazers_count - a.stargazers_count);
-      sorteddata = filteredByStars.slice(0, 10);
-      setFilteredObjects(sorteddata);
-    }
-  }, [repo]);
+    const filteredByStars = repo.sort(
+      (a, b) => b.stargazers_count - a.stargazers_count
+    );
+    sorteddata = filteredByStars.slice(0, 10);
+    setFilteredObjects(sorteddata);
+  }, []);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const input = event.target.value;
+    const input: any = event;
     setSearch(input);
-
     if (input.length >= 3) {
-      const filteredArray = sorteddata.filter((obj) =>
-        obj.name.toLowerCase().includes(input.toLowerCase())
+      const filteredArray = repo.filter((obj) =>
+        obj.name.toLowerCase().includes(search.toLowerCase())
       );
+      // console.log(search);
       setFilteredObjects(filteredArray);
     } else {
-      setFilteredObjects(sorteddata);
+      setFilteredObjects(repo.slice(0, 10));
     }
   };
-
-  if (!repo) {
-    return null; // Or you can render a loading state
-  }
 
   return (
     <div className={`${styles.wrapper}`}>
@@ -50,7 +44,7 @@ const UserAllRepos = (props: { repo: IrepoDetail[] }) => {
           width="90%"
         />
       </div>
-      {filteredObjects.map((item: IrepoDetail) => (
+      {filteredObjects?.map((item: IrepoDetail) => (
         <RepoCard key={item.id} Repo={item} />
       ))}
     </div>
