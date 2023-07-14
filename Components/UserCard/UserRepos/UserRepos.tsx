@@ -13,9 +13,7 @@ const UserRepos = (props: { repos: IrepoDetail[] }) => {
     useContext<mainContextType>(MainContext);
   useEffect(() => {
     setRepo(props.repos);
-    console.log("sortedBy", sortedBy);
   }, [sortedBy, search]);
-  console.log(repos);
   const filteredByForks = [...repos]?.sort(
     (a, b) => b.forks_count - a.forks_count
   );
@@ -24,7 +22,6 @@ const UserRepos = (props: { repos: IrepoDetail[] }) => {
     (a, b) =>
       new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()
   );
-  console.log(filteredbyTime);
 
   const filteredByStars = [...repos]?.sort(
     (a, b) => b.stargazers_count - a.stargazers_count

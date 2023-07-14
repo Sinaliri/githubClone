@@ -41,10 +41,8 @@ const Menubar = (props: { sortedoption: string }) => {
     setSortedBy(event?.currentTarget.innerText);
   };
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log();
     const input: any = event;
     setSearch(input);
-    console.log(search);
     if (input.length >= 3) {
       setSortedBy("");
       const filteredArray = [...repos].filter((obj) =>
@@ -56,7 +54,6 @@ const Menubar = (props: { sortedoption: string }) => {
       setSortedBy("Forks");
       setFilteredObjects(repos);
     }
-    console.log("FilteredObjects", filteredObjects);
   };
   const handle = () => {
     console.log(Username);

@@ -5,30 +5,39 @@ import RepoCard from "../UserCard/RepoCard/RepoCard";
 import Input from "../InputGenerator/Input";
 import styles from "./UserAllRepos.module.scss";
 
-const UserAllRepos = (props: { repo: any }) => {
-  useEffect(() => {});
+const UserAllRepos = (props: { repo: IrepoDetail[] }) => {
   const { repo } = props;
   const [search, setSearch] = useState("");
-  const filteredByStars = [...repo]?.sort(
-    (a, b) => b.stargazers_count - a.stargazers_count
-  );
-  const sorteddata = filteredByStars.slice(0, 10);
-  const [filteredObjects, setFilteredObjects] = useState(sorteddata);
+  const [filteredObjects, setFilteredObjects] = useState<IrepoDetail[]>([]);
+  let sorteddata: IrepoDetail[];
+  useEffect(() => {
+    if (repo) {
+      const filteredByStars = repo
+        .slice()
+        .sort((a, b) => b.stargazers_count - a.stargazers_count);
+      sorteddata = filteredByStars.slice(0, 10);
+      setFilteredObjects(sorteddata);
+    }
+  }, [repo]);
+
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const input: any = event;
+    const input = event.target.value;
     setSearch(input);
 
     if (input.length >= 3) {
       const filteredArray = sorteddata.filter((obj) =>
-        obj.name.toLowerCase().includes(search.toLowerCase())
+        obj.name.toLowerCase().includes(input.toLowerCase())
       );
-      // console.log(search);
       setFilteredObjects(filteredArray);
     } else {
       setFilteredObjects(sorteddata);
     }
-    console.log("FilteredObjects", filteredObjects);
   };
+
+  if (!repo) {
+    return null; // Or you can render a loading state
+  }
+
   return (
     <div className={`${styles.wrapper}`}>
       <div className={`${styles.search}`}>
@@ -41,9 +50,9 @@ const UserAllRepos = (props: { repo: any }) => {
           width="90%"
         />
       </div>
-      {filteredObjects?.map((item: IrepoDetail) => {
-        return <RepoCard key={item.id} Repo={item} />;
-      })}
+      {filteredObjects.map((item: IrepoDetail) => (
+        <RepoCard key={item.id} Repo={item} />
+      ))}
     </div>
   );
 };
