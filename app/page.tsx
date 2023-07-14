@@ -10,7 +10,7 @@ const Home = () => {
   const router = useRouter();
   const clickHandler = () => {
     setRepo([]);
-    router.push(`./${Username}`);
+    router.push(`./#/${Username}`);
   };
   return (
     <div className={`${styles.Container}`}>
