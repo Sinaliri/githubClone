@@ -27,7 +27,7 @@ const Home = () => {
         href={`./${Username}`}
         onClick={clickHandler}
       >
-        Search
+        Search user
       </Link>
     </div>
   );
